@@ -5,11 +5,11 @@ import java.io.IOException;
 /**
  * HandleFile.java
  * @author Jeremy Krovitz
- * 
+ *
  * Escapes special characters and counts the number of instances in each file.
  */
 class HandleFile {
-	
+
 	/**
 	 * Method obtained from https://www.baeldung.com/java-csv#2-handling-special-characters
 	 * @param data
@@ -23,11 +23,11 @@ class HandleFile {
 	    }
 	    return escapedData;
 	}
-	
+
 	static int countFromFile(String fileName) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
         String input;
-        
+
         int count = 0;
         while((input = bufferedReader.readLine()) != null)
         {

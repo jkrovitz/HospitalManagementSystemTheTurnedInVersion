@@ -12,37 +12,37 @@ import com.opencsv.CSVReader;
 /**
  * Lab.java
  * @author Jeremy Krovitz
- * 
+ *
  * Adds a new lab to the system and lists all of the labs in the system.
- * 
+ *
  * This code was adapted and modified from Hospital Management System Project in Java by Ghanendra Yadav
- * on 6 Nov. 2017. Original source code available here: 
+ * on 6 Nov. 2017. Original source code available here:
  * https://www.programmingwithbasics.com/2017/11/hospital-management-system-project-in.html
  */
 class Lab {
 	private String facilityStr;
 	private int labCost;
 	private Facility facilityObject;
-	
+
 	Lab(){}
-	
+
 	Lab(String facilityString, int labCost) {
 		this.facilityStr = facilityString;
-		this.labCost = labCost;	
+		this.labCost = labCost;
 	}
-	
+
 	Lab(String facilityString, int labCost, Facility facilityObject) {
 		this.facilityStr = facilityString;
 		this.labCost = labCost;
-		this.facilityObject = facilityObject;	
+		this.facilityObject = facilityObject;
 	}
 
 	void newFacility() throws IOException {
-		
+
 		Integer labCostInteger;
 		labCostInteger = labCost;
 		String labCostString = labCostInteger.toString();
-		
+
 		String facilityString;
 		if (!(facilityObject == null)) {
 			facilityString = facilityObject.toString();
@@ -50,15 +50,15 @@ class Lab {
 		else {
 			facilityString = " ";
 		}
-		
+
 		Scanner input = new Scanner(System.in);
-		
+
 		FileWriter writer = new FileWriter("Lab.csv", true);
 
 		if (!(facilityString.equals(" "))){
 			String[] labElement = {facilityStr, labCostString, facilityString};
 			String[] labElementString = {"facilityStr", "lab cost", "facilityStr name" };
-			
+
 			for (int i = 0; i < labElement.length; i++) {
 				System.out.println(labElementString[i] + ":- ");
 				labElement[i] = input.next();
@@ -70,11 +70,11 @@ class Lab {
 			}
 			writer.append("\n");
 		}
-		
+
 		else {
 			String[] labElement = {facilityStr, labCostString};
 			String[] labElementString = {"Facility", "labCost"};
-			
+
 			for (int i = 0; i < labElement.length; i++) {
 				System.out.println(labElementString[i] + ":- ");
 				labElement[i] = input.next();
@@ -85,21 +85,21 @@ class Lab {
 				writer.append(",");
 			}
 			writer.append("\n");
-			
+
 		}
 		writer.close();
-			
-	}	
+
+	}
 
 	void facilityList() throws IOException {
 		CSVReader reader = new CSVReader(new FileReader("Lab.csv"));
-		
+
 		System.out.println(
 				"--------------------------------------------------------------------------------");
 		System.out.println("Facilities\t\t Cost");
 		System.out.println(
 				"--------------------------------------------------------------------------------");
-		
+
 		String row[];
 		while ((row = reader.readNext()) != null) {
 			Integer costInt = Integer.parseInt(row[1]);
@@ -110,6 +110,6 @@ class Lab {
 			else {
 				System.out.println(row[0] + ", " + money.format(costInt));
 			}
-		}	
-	}	
+		}
+	}
 }

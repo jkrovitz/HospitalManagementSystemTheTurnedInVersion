@@ -1,24 +1,23 @@
 import java.io.*;
 import java.util.*;
-import java.util.Calendar;
 
 /**
  * HospitalMgmtSystem.java
  * @author Jeremy Krovitz
- * 
+ *
  * Driver class that handles navigation through the Hospital Management System software.
- * 
+ *
  * This code was adapted and modified from Hospital Management System Project in Java by Ghanendra Yadav
- * on 6 Nov. 2017. Original source code available here: 
+ * on 6 Nov. 2017. Original source code available here:
  * https://www.programmingwithbasics.com/2017/11/hospital-management-system-project-in.html
  */
 class HospitalMgmtSystem {
-    
+
    public static void main(String args[]) throws IOException, DoctorException {
 
         int choice, status = 1;
         Scanner input = new Scanner(System.in);
-        
+
         welcome();
 
         while (status == 1)  {
@@ -91,7 +90,7 @@ class HospitalMgmtSystem {
         System.out.println("1.Doctors 2. Patients 3.Medicines 4.Laboratories 5. Facilities 6. Staff ");
         System.out.println("-----------------------------------------------------------------------------------");
     }
-    
+
     private static void doctorOption() throws IOException, DoctorException {
         System.out.println(
                 "--------------------------------------------------------------------------------");
@@ -110,11 +109,11 @@ class HospitalMgmtSystem {
             {
                 case 1: {
                     Doctor[] d = new Doctor[25];
-               
+
                     for (int i = 0; i < 25; i++) {
                         d[i] = new Doctor();
                     }
-                    
+
                     int doctorCount = HandleFile.countFromFile("Doctor.csv");
                     d[doctorCount].newDoctor();
                     doctorCount++;
@@ -130,9 +129,9 @@ class HospitalMgmtSystem {
             System.out.println("\nReturn to Back Press 1 and for Main Menu Press 0");
             s1 = input.nextInt();
         }
-        
+
     }
-    
+
     private static void patientOption() throws IOException {
         System.out.println(
                 "--------------------------------------------------------------------------------");
@@ -140,10 +139,10 @@ class HospitalMgmtSystem {
         System.out.println(
                 "--------------------------------------------------------------------------------");
 
-        
+
         int c1, s2 = 1;
         Scanner input = new Scanner(System.in);
-        
+
 
         while (s2 == 1) {
             System.out.println("1.Add New Entry\n2.Existing Patients List");
@@ -151,12 +150,12 @@ class HospitalMgmtSystem {
             switch (c1) {
                 case 1: {
                     Patient[] p = new Patient[100];
-                    
+
                     for (int i = 0; i < 100; i++) {
 
                         p[i] = new Patient();
                     }
-                    
+
                     int patientCount = HandleFile.countFromFile("Patient.csv");
                     p[patientCount].newPatient();
                     patientCount++;
@@ -175,7 +174,7 @@ class HospitalMgmtSystem {
             s2 = input.nextInt();
         }
     }
-    
+
     private static void medicalOption() throws IOException {
         System.out.println(
                 "--------------------------------------------------------------------------------");
@@ -185,8 +184,7 @@ class HospitalMgmtSystem {
 
         int c1, s3 = 1;
         Scanner input = new Scanner(System.in);
-        
-        
+
         while (s3 == 1) {
             System.out.println("1.Add New Entry\n2. Existing Medicines List");
             c1 = input.nextInt();
@@ -194,13 +192,13 @@ class HospitalMgmtSystem {
             switch (c1) {
 
                 case 1: {
-                    
+
                     Medicine[] m = new Medicine[100];
-                    
+
                     for (int i = 0; i < 100; i++) {
                         m[i] = new Medicine();
                     }
-                    
+
                     int medicalCount = HandleFile.countFromFile("Medicine.csv");
                     m[medicalCount].newMedi();
                     medicalCount++;
@@ -219,7 +217,7 @@ class HospitalMgmtSystem {
             s3 = input.nextInt();
         }
     }
-   
+
     private static void labOption() throws IOException {
         int c1, s4 = 1;
         Scanner input = new Scanner(System.in);
@@ -263,7 +261,7 @@ class HospitalMgmtSystem {
             s4 = input.nextInt();
         }
     }
-    
+
     private static void facilityOption() throws IOException {
         int c1, s5 = 1;
         Scanner input = new Scanner(System.in);
@@ -288,7 +286,7 @@ class HospitalMgmtSystem {
                     for (int i = 0; i < 20; i++) {
                         f[i] = new Facility();
                     }
-                    
+
                     int facilityCount = HandleFile.countFromFile("Facility.csv");
                     f[facilityCount].addFacility();
                     facilityCount++;
@@ -304,11 +302,11 @@ class HospitalMgmtSystem {
             System.out.println("\nReturn to Back Press 1 and for Main Menu Press 0");
             s5 = input.nextInt();
         }
-        
-        
+
+
     }
-    
-    
+
+
     private static void staffOption() throws IOException {
        String c2;
        int s6 = 1;
@@ -363,11 +361,11 @@ class HospitalMgmtSystem {
 
         }
     }
-    
+
     private static void nurseOption() throws IOException {
         int sub1 = 1, c3;
         Scanner input = new Scanner(System.in);
-        
+
         while (sub1 == 1) {
         System.out.println("1.Add New Entry \n2.Existing Nurses List");
 
@@ -377,13 +375,12 @@ class HospitalMgmtSystem {
 
             case 1: {
                 Nurse[] n = new Nurse[100];
-                
 
                 for (int i = 0; i < 100; i++) {
 
                     n[i] = new Nurse();
                 }
-                
+
                 int nurseCount = HandleFile.countFromFile("Nurse.csv");
                 n[nurseCount].createNurse();
                 nurseCount++;
@@ -412,11 +409,11 @@ class HospitalMgmtSystem {
     System.out.println("\nReturn to Staff Menu, Press 1");
     input.nextInt();
     }
-    
+
     private static void workerOption() throws IOException {
         int sub2 = 1, c3;
         Scanner input = new Scanner(System.in);
-        
+
         while (sub2 == 1) {
 
             System.out.println("1.Add New Entry \n2.Existing Worker List");
@@ -424,8 +421,6 @@ class HospitalMgmtSystem {
 
             switch (c3) {
                 case 1: {
-                    
-                    
                     Worker[] work = new Worker[100];
                     for (int i=0; i < 100; i++) {
                         work[i] = new Worker();
@@ -458,12 +453,12 @@ class HospitalMgmtSystem {
         System.out.println("\nReturn to Staff Menu, Press 1");
         input.nextInt();
     }
-    
+
    private static void securityOption() throws IOException {
-       
-       int sub3 = 1, c3; 
+
+       int sub3 = 1, c3;
        Scanner input = new Scanner(System.in);
-       
+
         while (sub3 == 1) {
 
             System.out.println("1.Add New Entry \n2.Existing Security List");
@@ -476,7 +471,7 @@ class HospitalMgmtSystem {
                     for (int i = 0; i < 100; i++) {
                         sec[i] = new Security();
                     }
-                    
+
                     int securityCount = HandleFile.countFromFile("Security.csv");
                     sec[securityCount].createSecurity();
                     securityCount++;

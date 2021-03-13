@@ -5,10 +5,10 @@ import com.opencsv.CSVReader;
 /**
  * Patient.java
  * @author Jeremy Krovitz
- * 
+ *
  * Adds a new patient to the system and lists all of the patients in the
- * system. 
- * 
+ * system.
+ *
  * This code was adapted and modified from Hospital Management
  * System Project in Java by Ghanendra Yadav on 6 Nov. 2017. Original
  * source code available here:

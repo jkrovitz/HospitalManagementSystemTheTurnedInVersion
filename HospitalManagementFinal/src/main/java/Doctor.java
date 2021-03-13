@@ -5,11 +5,11 @@ import com.opencsv.CSVReader;
 /**
  * Doctor.java
  * @author Jeremy Krovitz
- * 
+ *
  * Adds new doctor to the system and lists all doctors in the system.
- * 
+ *
  * This code was adapted and modified from Hospital Management System Project in Java by Ghanendra Yadav
- * on 6 Nov. 2017. Original source code available here: 
+ * on 6 Nov. 2017. Original source code available here:
  * https://www.programmingwithbasics.com/2017/11/hospital-management-system-project-in.html
  */
 class Doctor {

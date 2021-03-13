@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,13 +7,13 @@ import com.opencsv.CSVReader;
 
 /**
  * Staff.java
- * 
+ *
  * @author Jeremy Krovitz
- * 
+ *
  *         Parent class creates new staff of type Nurse, Worker, and Security as
  *         well as lists all of the instances for each type—Nurse, Worker, and
  *         Security— in the system.
- * 
+ *
  *         This code was adapted and modified from Hospital Management System
  *         Project in Java by Ghanendra Yadav on 6 Nov. 2017. Original source
  *         code available here:
